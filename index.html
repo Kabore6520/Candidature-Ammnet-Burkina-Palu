@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appel AMMnet paludisme</title>
+<meta name="description" content="Appel à candidatures : formation pratique en modélisation mathématique et digitalisation des données de santé avec R, pour renforcer la lutte contre le paludisme au Burkina Faso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE fiche d'inscription chaleureuse, sur le modèle fourni (R Users Community)
+   IDEA un formulaire officiel en cartes, sous un bandeau où une carte de chaleur évoque la transmission saisonnière
+   PICTURE taches de chaleur orangées en fond du bandeau, comme des foyers de transmission
+   COLOUR fond sable clair, bleu marine pour les étiquettes, dégradé or-orange-rouge pour le titre et les boutons
+   TYPE Poppins de 400 à 800
+   LAYOUT une colonne centrée de 760 px ; bandeau, présentation de l'appel en cartes, puis formulaire en cartes */
+:root{color-scheme:light dark;--bg:light-dark(#f3f1ed,#0c1222);--card:light-dark(#ffffff,#141c33);--ink:light-dark(#0f1a3d,#e9ecf6);--mut:light-dark(#5b6275,#a6aec4);--line:light-dark(#e3e0da,#2a3452);--navy:light-dark(#0f1a3d,#e9ecf6);--navyInk:light-dark(#ffffff,#0f1a3d);--or1:#f6a821;--or2:#e8590c;--or3:#c0392b;--orT:light-dark(#e8590c,#ff8a4c);--soft:light-dark(#fff6ec,#1e2440);--bad:light-dark(#c0392b,#ff8a80)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15.5px/1.6 Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0 0 10px}
+a{color:var(--orT)}
+.col{max-width:760px;margin:0 auto;padding:0 max(16px,4vw)}
+.hero{position:relative;overflow:hidden;padding:20px 0 34px}
+.heat{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .col{position:relative}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand img{width:54px;height:54px;border-radius:12px;background:#fff;box-shadow:0 4px 14px #0f1a3d1f;object-fit:contain;padding:6px}
+.brand span{font-size:13px;font-weight:600;letter-spacing:.28em;line-height:1.35;text-transform:uppercase}
+.brand b{display:block;color:var(--orT);font-weight:700}
+.pill{background:var(--navy);color:var(--navyInk);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border-radius:9px}
+.pre{font-size:13px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+h1{font-size:clamp(38px,8vw,62px);font-weight:800;background:linear-gradient(90deg,var(--or1),var(--or2) 60%,var(--or3));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:6px}
+.sub{font-size:clamp(18px,2.6vw,22px);font-weight:700;margin:10px 0 2px;line-height:1.3}
+.sub em{display:block;font-style:normal;color:var(--orT)}
+.badge{display:inline-flex;align-items:center;gap:12px;margin-top:20px;padding:10px 20px;border-radius:12px;color:#fff;background:linear-gradient(90deg,var(--or1),var(--or2) 55%,var(--or3));box-shadow:0 8px 20px #e8590c40}
+.badge strong{font-size:22px;font-weight:800;letter-spacing:-.01em;white-space:nowrap}
+.badge span{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.3}
+.count{display:block;margin-top:10px;font-size:14px;font-weight:600;color:var(--mut)}
+.intro{color:var(--mut);margin:8px 0 26px;padding:0 4px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px clamp(16px,3vw,22px) 22px;margin:34px 0 0}
+.card>.lab,fieldset.card>legend{position:absolute;top:-15px;left:18px;background:var(--navy);color:var(--navyInk);font-size:14.5px;font-weight:700;padding:5px 14px;border-radius:8px;margin:0;float:none}
+fieldset.card{min-inline-size:0}
+.card h3{font-size:16px;font-weight:700;margin:16px 0 6px}
+.card h3:first-of-type{margin-top:0}
+.muted{color:var(--mut)}
+.small{font-size:13.5px;color:var(--mut)}
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.kv div{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.kv dt{font-size:13px;color:var(--mut)}
+.kv dd{margin:0;font-weight:700;line-height:1.35}
+ul.tick{list-style:none;padding:0;margin:0}
+ul.tick li{position:relative;padding-left:24px;margin:6px 0}
+ul.tick li::before{content:"";position:absolute;left:3px;top:.6em;width:11px;height:6px;border-left:2.5px solid var(--or2);border-bottom:2.5px solid var(--or2);transform:rotate(-45deg)}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 4px}
+.stat{background:var(--soft);border-radius:10px;padding:10px 12px}
+.stat b{display:block;font-size:22px;font-weight:800;color:var(--orT);line-height:1.2}
+.stat span{font-size:13.5px}
+.day{display:grid;grid-template-columns:4.5em minmax(0,1fr);gap:4px 12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.day:last-child{border-bottom:0}
+.day b{font-weight:700;color:var(--orT)}
+.day ul{margin:0;padding-left:18px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+td{padding:7px 4px;border-bottom:1px solid var(--line)}
+td.n{text-align:right;white-space:nowrap;font-weight:600}
+.steps{list-style:none;margin:0;padding:0}
+.steps li{display:grid;grid-template-columns:minmax(9.5em,max-content) minmax(0,1fr);gap:2px 14px;padding:9px 0;border-bottom:1px solid var(--line)}
+.steps li:last-child{border-bottom:0}
+.steps strong{color:var(--orT);font-weight:700}
+details{border-bottom:1px solid var(--line)}
+details:last-child{border-bottom:0}
+summary{cursor:pointer;font-weight:600;padding:10px 0;min-height:44px}
+details p{color:var(--mut)}
+.f{margin:18px 0 0}
+.f:first-of-type{margin-top:4px}
+.f>label,.f>.lbl{display:block;font-weight:600;margin-bottom:6px;line-height:1.35}
+.req{color:var(--or2)}
+.hint{display:block;font-size:13px;font-weight:400;color:var(--mut);margin-top:2px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;font:16px Poppins,system-ui,sans-serif;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;min-height:48px}
+textarea{min-height:110px;resize:vertical}
+select{appearance:auto}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid color-mix(in srgb,var(--or2) 35%,transparent);border-color:var(--or2)}
+input[type=file]{width:100%;font:14px Poppins,sans-serif;color:var(--ink);padding:12px;border:1.5px dashed var(--line);border-radius:11px;background:var(--soft)}
+.opts{display:grid;gap:8px}
+.opts.row{grid-template-columns:repeat(auto-fit,minmax(9.5em,1fr))}
+.opts.scale{grid-template-columns:repeat(4,minmax(0,1fr))}
+.opt{display:flex;align-items:center;gap:12px;min-height:46px;padding:9px 14px;border:1.5px solid var(--line);border-radius:11px;cursor:pointer;line-height:1.3;background:var(--card)}
+.opt input{flex:none;width:19px;height:19px;margin:0;accent-color:var(--or2)}
+.opt:has(input:checked){border-color:var(--or2);background:var(--soft)}
+.opt:has(input:focus-visible){outline:3px solid color-mix(in srgb,var(--or2) 40%,transparent)}
+.wc{font-size:13px;color:var(--mut);text-align:right;margin-top:4px}
+.wc.over{color:var(--bad);font-weight:700}
+.msg{display:none;color:var(--bad);font-size:14px;font-weight:600;margin:6px 0 0}
+.f.bad .msg{display:block}
+.f.bad input[type=text],.f.bad input[type=email],.f.bad input[type=tel],.f.bad select,.f.bad textarea,.f.bad input[type=file],.f.bad .opt{border-color:var(--bad)}
+.go{display:flex;width:100%;align-items:center;justify-content:center;min-height:56px;margin-top:26px;border:0;border-radius:13px;font:700 17px Poppins,sans-serif;color:#fff;cursor:pointer;background:linear-gradient(90deg,var(--or1),var(--or2) 55%,var(--or3));box-shadow:0 10px 24px #e8590c40;text-decoration:none}
+.go:hover{filter:brightness(1.05)}
+.go:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.go[disabled]{opacity:.65;cursor:wait}
+.alert{border-radius:11px;padding:12px 14px;margin:20px 0 0;font-weight:600;font-size:14.5px}
+.alert.err{background:color-mix(in srgb,var(--bad) 12%,var(--card));color:var(--bad)}
+.alert.info{background:var(--soft);color:var(--ink);font-weight:500}
+.note{font-size:13px;color:var(--mut);text-align:center;margin-top:10px}
+.panel{text-align:left}
+.panel h2{font-size:26px;font-weight:800;margin-bottom:10px}
+.ref{display:inline-block;font-weight:800;font-size:24px;color:var(--orT);background:var(--soft);padding:6px 14px;border-radius:10px;margin:2px 0 12px}
+.panel ol{padding-left:22px;margin:0}
+.panel li{margin:7px 0}
+.demo{border:1.5px dashed var(--or2);border-radius:11px;padding:10px 14px;font-size:14px;margin-top:14px}
+footer{text-align:center;font-size:13.5px;color:var(--mut);padding:34px 16px 40px}
+[hidden]{display:none!important}
+@media(max-width:600px){.grid2,.kv,.stats{grid-template-columns:minmax(0,1fr)}.opts.scale{grid-template-columns:repeat(2,minmax(0,1fr))}.steps li,.day{grid-template-columns:minmax(0,1fr)}.brand span{letter-spacing:.18em}.badge{gap:10px;padding:10px 16px}.badge strong{font-size:19px}.badge span{font-size:11px}.top{margin-bottom:22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero" id="haut">
+  <svg class="heat" id="heat" aria-hidden="true"></svg>
+  <div class="col">
+    <div class="top">
+      <a class="brand" href="#haut"><img id="logo" src="logo.png" alt="" onerror="this.remove()"><span>AMMnet<b>Burkina Faso</b></span></a>
+      <span class="pill" id="statusPill">Candidatures ouvertes</span>
+    </div>
+    <p class="pre">Formation pratique en</p>
+    <h1>Modélisation et données de santé</h1>
+    <p class="sub">De la donnée à la décision : renforcer la lutte contre le paludisme au Burkina Faso<em>avec R</em></p>
+    <div class="badge"><strong data-c="deadlineLabel"></strong><span>Date limite<br>de candidature</span></div>
+    <span class="count" id="countdown"></span>
+  </div>
+</header>
+
+<main class="col">
+  <p class="intro">AMMnet Burkina Faso, en collaboration avec le Secrétariat permanent pour l'élimination du paludisme (SP/PALU), lance un appel à candidatures pour une formation en présentiel de 2,5 jours. Lisez la présentation, puis remplissez le formulaire. Les champs marqués <span class="req">*</span> sont obligatoires.</p>
+
+  <section class="card" id="appel">
+    <span class="lab">L'appel en bref</span>
+    <dl class="kv">
+      <div><dt>Période</dt><dd data-c="formation"></dd></div>
+      <div><dt>Lieu</dt><dd data-c="lieu"></dd></div>
+      <div><dt>Durée</dt><dd>2,5 jours, 18 h d'activités</dd></div>
+      <div><dt>Places</dt><dd><span data-c="places"></span> participants</dd></div>
+      <div><dt>Outil principal</dt><dd>R (scripts préparés et commentés)</dd></div>
+      <div><dt>Appui technique</dt><dd>BlueSquare (modules données)</dd></div>
+    </dl>
+  </section>
+
+  <section class="card" id="contexte">
+    <span class="lab">Contexte</span>
+    <p>Le paludisme reste un problème majeur de santé publique au Burkina Faso. Sa transmission est fortement saisonnière et les enfants de moins de 5 ans en portent une large part : en 2024, près de 30 % des cas et plus de 62 % des décès notifiés. Les résultats récents sont encourageants :</p>
+    <div class="stats">
+      <div class="stat"><b>−32 %</b><span>de cas notifiés : 10 805 020 en 2024, 7 329 278 en 2025</span></div>
+      <div class="stat"><b>−44 %</b><span>de décès : 3 523 en 2024, 1 979 en 2025</span></div>
+    </div>
+    <p class="small">Chiffres communiqués par le ministre de la Santé en février 2026.</p>
+    <p>MILDA, CPS+, prise en charge des cas, vaccination RTS,S et lutte antivectorielle évoluent en même temps : il est difficile d'isoler l'effet de chacune et d'anticiper leurs combinaisons. La modélisation mathématique aide à comparer des scénarios, à condition de reposer sur des données fiables et documentées. Cette formation d'initiation appliquée rapproche donc modélisation et gestion des données, autour d'un cas pratique adapté aux besoins du SP/PALU et de l'objectif d'élimination à l'horizon 2030.</p>
+  </section>
+
+  <section class="card" id="objectifs">
+    <span class="lab">Ce que vous apprendrez</span>
+    <h3>Modélisation avec R (modules M1 à M4)</h3>
+    <ul class="tick">
+      <li>Lire et expliquer un modèle SIR ou SEIR simple et ses limites pour le paludisme.</li>
+      <li>Interpréter R₀ et les facteurs de transmission, dont le modèle hôte-vecteur de Ross-Macdonald.</li>
+      <li>Exécuter et modifier un script R pour comparer deux scénarios d'intervention.</li>
+    </ul>
+    <h3>Digitalisation des données (modules M5 et M6)</h3>
+    <ul class="tick">
+      <li>Contrôler la complétude, la cohérence et la provenance d'un jeu de données.</li>
+      <li>Nettoyer les données, produire des graphiques et un tableau de bord simple.</li>
+      <li>Rédiger en groupe une note de synthèse non technique pour un décideur.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="programme">
+    <span class="lab">Programme</span>
+    <div id="days"></div>
+    <p class="small" style="margin-top:8px">Environ deux tiers du temps en exercices guidés et travaux de groupe. Les scripts R, les supports et le jeu de données d'exercice fonctionnent hors ligne.</p>
+  </section>
+
+  <section class="card" id="profil">
+    <span class="lab">Profil recherché</span>
+    <p>Statisticiens, épidémiologistes, biologistes, gestionnaires de données, points focaux de programmes et enseignants-chercheurs travaillant sur le paludisme ou sur les données de santé.</p>
+    <h3>Prérequis</h3>
+    <ul class="tick">
+      <li>Notions de base en mathématiques, statistique, épidémiologie ou gestion des données.</li>
+      <li>Aisance avec l'ordinateur et les fichiers CSV ou tableur.</li>
+      <li>Un ordinateur portable personnel, sur lequel vous pourrez installer R et RStudio avant la formation.</li>
+      <li>Aucune expérience en modélisation exigée. Une connaissance élémentaire de R est un plus, mais n'est pas obligatoire.</li>
+    </ul>
+    <h3>Répartition indicative des places</h3>
+    <table>
+      <tr><td>SP/PALU</td><td class="n">5 à 6</td></tr>
+      <tr><td>CNRFP et structures de recherche</td><td class="n">3 à 4</td></tr>
+      <tr><td>Directions régionales et districts sanitaires</td><td class="n">8 à 9</td></tr>
+      <tr><td>Universités et institutions de formation</td><td class="n">4 à 5</td></tr>
+      <tr><td>Autres partenaires techniques</td><td class="n">1 à 2</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="modalites">
+    <span class="lab">Modalités et calendrier</span>
+    <ol class="steps">
+      <li><strong data-c="deadlineLabel"></strong><span>Clôture des candidatures. Seuls les dossiers complets, avec CV, sont examinés.</span></li>
+      <li><strong data-c="notification"></strong><span>Résultats communiqués par e-mail et WhatsApp.</span></li>
+      <li><strong>Deux semaines avant</strong><span>Envoi du guide d'installation (R, RStudio), des supports et des scripts ; vérification à distance de votre installation.</span></li>
+      <li><strong data-c="formation"></strong><span>Formation en présentiel.</span></li>
+    </ol>
+    <h3 style="margin-top:16px">Sélection</h3>
+    <p>Lien du poste avec le paludisme ou les données, respect des prérequis (ordinateur, disponibilité sur toute la durée), qualité de la motivation, équilibre entre structures, régions et profils, et équilibre femmes-hommes.</p>
+    <h3>Pris en charge</h3>
+    <p>Pauses et déjeuners, kit pédagogique (supports, scripts R commentés, jeux de données) et attestation. Transport et hébergement selon les règles de l'organisateur, précisées aux candidats retenus.</p>
+  </section>
+
+  <section class="card" id="faq">
+    <span class="lab">Questions fréquentes</span>
+    <details><summary>Je n'ai jamais utilisé R. Puis-je candidater ?</summary><p>Oui. Les scripts sont préparés et expliqués pas à pas. Une première prise en main de R avant la formation vous fera gagner du temps.</p></details>
+    <details><summary>Je n'ai pas d'ordinateur portable personnel.</summary><p>Indiquez-le dans le formulaire. La commission en tiendra compte selon les équipements disponibles.</p></details>
+    <details><summary>Plusieurs agents d'une même structure peuvent-ils postuler ?</summary><p>Oui, mais la sélection suit la répartition indicative par type de structure.</p></details>
+    <details><summary>Que se passe-t-il après l'envoi ?</summary><p>Un numéro de candidature s'affiche et vous est envoyé par e-mail. Les candidats retenus sont contactés par e-mail et WhatsApp.</p></details>
+  </section>
+
+  <div class="card panel" id="closed" hidden>
+    <span class="lab">Candidatures closes</span>
+    <h2>La date limite est dépassée</h2>
+    <p>Merci de votre intérêt. Suivez les canaux d'AMMnet Burkina Faso pour les prochaines sessions.</p>
+  </div>
+
+  <form id="form" novalidate>
+    <div class="alert info" id="draftNote" hidden></div>
+
+    <fieldset class="card">
+      <legend>Vos coordonnées</legend>
+      <div class="grid2">
+        <div class="f"><label for="nom">Nom <span class="req">*</span></label><input type="text" id="nom" name="nom" autocomplete="family-name" required><p class="msg"></p></div>
+        <div class="f"><label for="prenoms">Prénom(s) <span class="req">*</span></label><input type="text" id="prenoms" name="prenoms" autocomplete="given-name" required><p class="msg"></p></div>
+      </div>
+      <div class="f"><span class="lbl">Sexe <span class="req">*</span></span>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="sexe" value="Femme" required>Femme</label>
+          <label class="opt"><input type="radio" name="sexe" value="Homme">Homme</label>
+        </div><p class="msg"></p></div>
+      <div class="f"><label for="telephone">Numéro WhatsApp <span class="req">*</span><span class="hint">Avec l'indicatif du pays, par exemple +226 70 00 00 00</span></label><input type="tel" id="telephone" name="telephone" autocomplete="tel" required><p class="msg"></p></div>
+      <div class="f"><label for="email">Adresse e-mail <span class="req">*</span></label><input type="email" id="email" name="email" autocomplete="email" required><p class="msg"></p></div>
+      <div class="f"><label for="ville">Ville de résidence <span class="req">*</span></label><input type="text" id="ville" name="ville" autocomplete="address-level2" required><p class="msg"></p></div>
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>Votre situation professionnelle</legend>
+      <div class="f"><span class="lbl">Type de structure <span class="req">*</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="typeStructure" value="SP/PALU" required>SP/PALU</label>
+          <label class="opt"><input type="radio" name="typeStructure" value="CNRFP ou structure de recherche">CNRFP ou structure de recherche</label>
+          <label class="opt"><input type="radio" name="typeStructure" value="Direction régionale de la santé">Direction régionale de la santé</label>
+          <label class="opt"><input type="radio" name="typeStructure" value="District sanitaire">District sanitaire</label>
+          <label class="opt"><input type="radio" name="typeStructure" value="Université ou institution de formation">Université ou institution de formation</label>
+          <label class="opt"><input type="radio" name="typeStructure" value="Autre partenaire technique">Autre partenaire technique</label>
+        </div><p class="msg"></p></div>
+      <div class="f" data-show="typeStructure=Autre partenaire technique"><label for="typeStructureAutre">Précisez le type de partenaire <span class="req">*</span></label><input type="text" id="typeStructureAutre" name="typeStructureAutre" required><p class="msg"></p></div>
+      <div class="f"><label for="structure">Nom exact de la structure <span class="req">*</span></label><input type="text" id="structure" name="structure" autocomplete="organization" required><p class="msg"></p></div>
+      <div class="grid2">
+        <div class="f"><label for="region">Région <span class="req">*</span></label><select id="region" name="region" required><option value="">Choisir…</option></select><p class="msg"></p></div>
+        <div class="f"><label for="experience">Expérience professionnelle <span class="req">*</span></label>
+          <select id="experience" name="experience" required>
+            <option value="">Choisir…</option>
+            <option>Moins de 2 ans</option><option>2 à 5 ans</option><option>6 à 10 ans</option><option>Plus de 10 ans</option>
+          </select><p class="msg"></p></div>
+      </div>
+      <div class="f"><label for="fonction">Fonction ou poste actuel <span class="req">*</span></label><input type="text" id="fonction" name="fonction" autocomplete="organization-title" required><p class="msg"></p></div>
+      <div class="f"><span class="lbl">Profil principal <span class="req">*</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="profil" value="Statisticien(ne)" required>Statisticien(ne)</label>
+          <label class="opt"><input type="radio" name="profil" value="Épidémiologiste">Épidémiologiste</label>
+          <label class="opt"><input type="radio" name="profil" value="Biologiste">Biologiste</label>
+          <label class="opt"><input type="radio" name="profil" value="Gestionnaire de données">Gestionnaire de données</label>
+          <label class="opt"><input type="radio" name="profil" value="Point focal de programme">Point focal de programme</label>
+          <label class="opt"><input type="radio" name="profil" value="Enseignant(e)-chercheur(e)">Enseignant(e)-chercheur(e)</label>
+          <label class="opt"><input type="radio" name="profil" value="Autre">Autre</label>
+        </div><p class="msg"></p></div>
+      <div class="f" data-show="profil=Autre"><label for="profilAutre">Précisez votre profil <span class="req">*</span></label><input type="text" id="profilAutre" name="profilAutre" required><p class="msg"></p></div>
+      <div class="f"><label for="diplome">Plus haut diplôme obtenu et domaine <span class="req">*</span><span class="hint">Par exemple : Master en santé publique</span></label><input type="text" id="diplome" name="diplome" required><p class="msg"></p></div>
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>Paludisme et données</legend>
+      <div class="f"><span class="lbl">Travaillez-vous actuellement sur le paludisme ? <span class="req">*</span></span>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="paludisme" value="Oui" required>Oui</label>
+          <label class="opt"><input type="radio" name="paludisme" value="Non">Non</label>
+        </div><p class="msg"></p></div>
+      <div class="f" data-group="taches"><span class="lbl">Vos tâches liées aux données <span class="req">*</span><span class="hint">Plusieurs réponses possibles.</span></span>
+        <div class="opts" id="taches"></div><p class="msg"></p></div>
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>Vos compétences</legend>
+      <div id="skills"></div>
+      <div class="f" data-group="logiciels"><span class="lbl">Quels logiciels avez-vous déjà utilisés ? <span class="req">*</span><span class="hint">Plusieurs réponses possibles.</span></span>
+        <div class="opts" id="logiciels"></div><p class="msg"></p></div>
+      <div class="f"><span class="lbl">Avez-vous déjà suivi une formation en modélisation ? <span class="req">*</span></span>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="formationModelisation" value="Oui" required>Oui</label>
+          <label class="opt"><input type="radio" name="formationModelisation" value="Non">Non</label>
+        </div><p class="msg"></p></div>
+      <div class="f" data-show="formationModelisation=Oui"><label for="formationModelisationDetail">Laquelle et en quelle année ? <span class="req">*</span></label><input type="text" id="formationModelisationDetail" name="formationModelisationDetail" required><p class="msg"></p></div>
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>Ordinateur et disponibilité</legend>
+      <div class="f"><span class="lbl">Disposez-vous d'un ordinateur portable personnel que vous apporterez ? <span class="req">*</span></span>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="ordinateur" value="Oui" required>Oui</label>
+          <label class="opt"><input type="radio" name="ordinateur" value="Non">Non</label>
+        </div><p class="msg"></p></div>
+      <div class="f"><span class="lbl">Système d'exploitation <span class="req">*</span></span>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="os" value="Windows" required>Windows</label>
+          <label class="opt"><input type="radio" name="os" value="macOS">macOS</label>
+          <label class="opt"><input type="radio" name="os" value="Linux">Linux</label>
+          <label class="opt"><input type="radio" name="os" value="Je ne sais pas">Je ne sais pas</label>
+        </div><p class="msg"></p></div>
+      <div class="f"><span class="lbl">R et RStudio sont-ils déjà installés sur cet ordinateur ? <span class="req">*</span></span>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="rInstalle" value="Oui, les deux" required>Oui, les deux</label>
+          <label class="opt"><input type="radio" name="rInstalle" value="R seulement">R seulement</label>
+          <label class="opt"><input type="radio" name="rInstalle" value="Non">Non</label>
+          <label class="opt"><input type="radio" name="rInstalle" value="Je ne sais pas">Je ne sais pas</label>
+        </div><p class="msg"></p></div>
+      <div class="f"><span class="lbl">Pouvez-vous installer des logiciels sur cet ordinateur (droits administrateur) ? <span class="req">*</span></span>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="adminDroits" value="Oui" required>Oui</label>
+          <label class="opt"><input type="radio" name="adminDroits" value="Non">Non</label>
+          <label class="opt"><input type="radio" name="adminDroits" value="Je ne sais pas">Je ne sais pas</label>
+        </div><p class="msg"></p></div>
+      <div class="f"><span class="lbl">Êtes-vous disponible pendant les 2,5 jours complets ? <span class="req">*</span></span>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="disponible" value="Oui" required>Oui</label>
+          <label class="opt"><input type="radio" name="disponible" value="Non">Non</label>
+        </div><p class="msg"></p></div>
+      <div class="f"><span class="lbl">Acceptez-vous une vérification à distance de votre installation deux semaines avant ? <span class="req">*</span></span>
+        <div class="opts row">
+          <label class="opt"><input type="radio" name="verifDistance" value="Oui" required>Oui</label>
+          <label class="opt"><input type="radio" name="verifDistance" value="Non">Non</label>
+        </div><p class="msg"></p></div>
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>Vos motivations</legend>
+      <div class="f"><label for="motivation">Pourquoi souhaitez-vous suivre cette formation ? <span class="req">*</span></label><textarea id="motivation" name="motivation" data-max="150" required></textarea><div class="wc" data-for="motivation"></div><p class="msg"></p></div>
+      <div class="f"><label for="probleme">Quel problème concret de votre service aimeriez-vous éclairer grâce aux données ou à la modélisation ? <span class="req">*</span><span class="hint">Par exemple : l'effet du calendrier des passages CPS+ sur les cas notifiés dans mon district.</span></label><textarea id="probleme" name="probleme" data-max="100" required></textarea><div class="wc" data-for="probleme"></div><p class="msg"></p></div>
+      <div class="f"><label for="application">Comment utiliserez-vous les acquis dans votre service ? <span class="req">*</span></label><textarea id="application" name="application" data-max="100" required></textarea><div class="wc" data-for="application"></div><p class="msg"></p></div>
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>Pièces jointes</legend>
+      <div class="f"><label for="cv">Curriculum vitae <span class="req">*</span><span class="hint">PDF de 2 pages maximum, <span data-c="maxFileMB"></span> Mo au plus.</span></label><input type="file" id="cv" name="cv" accept="application/pdf,.pdf" required><p class="msg"></p></div>
+      <div class="f"><label for="autorisation">Autorisation ou lettre de soutien du supérieur hiérarchique <span class="req" id="authStar">*</span><span class="hint">PDF, <span data-c="maxFileMB"></span> Mo au plus.</span></label><input type="file" id="autorisation" name="autorisation" accept="application/pdf,.pdf"><p class="msg"></p></div>
+      <div class="f"><label for="source">Comment avez-vous connu cet appel ?</label>
+        <select id="source" name="source">
+          <option value="">Choisir…</option>
+          <option>E-mail</option><option>WhatsApp</option><option>Collègue ou supérieur</option><option>Site web ou réseaux sociaux</option><option>Autre</option>
+        </select></div>
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>Engagements</legend>
+      <div class="f"><label class="opt"><input type="checkbox" name="engagementPresence" value="Oui" required><span>Je m'engage à suivre toute la formation et à installer R et RStudio avant son démarrage. <span class="req">*</span></span></label><p class="msg"></p></div>
+      <div class="f"><label class="opt"><input type="checkbox" name="engagementEvaluation" value="Oui" required><span>J'accepte de participer au pré-test, au post-test et au suivi prévu environ trois mois après. <span class="req">*</span></span></label><p class="msg"></p></div>
+      <div class="f"><label class="opt"><input type="checkbox" name="consentementDonnees" value="Oui" required><span>J'autorise l'utilisation de mes données uniquement pour la sélection et l'organisation de la formation. <span class="req">*</span></span></label><p class="msg"></p></div>
+      <div class="f"><label class="opt"><input type="checkbox" name="exactitude" value="Oui" required><span>Je certifie l'exactitude des informations fournies. <span class="req">*</span></span></label><p class="msg"></p></div>
+    </fieldset>
+
+    <div class="alert err" id="formError" hidden></div>
+    <button class="go" type="submit" id="send">Envoyer ma candidature</button>
+    <p class="note">Une seule candidature par personne. Vos réponses sont gardées sur cet appareil pendant la saisie, sauf les fichiers.</p>
+  </form>
+
+  <div class="card panel" id="success" hidden tabindex="-1">
+    <span class="lab">Candidature enregistrée</span>
+    <h2>Merci, <span id="okName"></span></h2>
+    <p>Votre numéro de candidature :</p>
+    <span class="ref" id="okRef"></span>
+    <ol>
+      <li>Conservez ce numéro ; une confirmation est envoyée à <strong id="okMail"></strong>.</li>
+      <li>Les résultats seront communiqués au plus tard le <strong data-c="notification"></strong>, par e-mail et WhatsApp.</li>
+      <li>Si vous êtes retenu(e) : installez R et RStudio selon le guide envoyé, puis participez à la vérification à distance deux semaines avant la formation.</li>
+    </ol>
+    <p class="demo" id="okDemo" hidden>Mode démonstration : aucune adresse d'enregistrement n'est configurée, cette candidature n'a donc pas été transmise.</p>
+    <button class="go" type="button" id="another">Saisir une autre candidature</button>
+  </div>
+
+  <div class="card panel" id="duplicate" hidden tabindex="-1">
+    <span class="lab">Déjà inscrit(e)</span>
+    <h2>Vous avez déjà candidaté</h2>
+    <p>Une candidature existe déjà avec cette adresse e-mail ou ce numéro WhatsApp. Pour la modifier ou en cas d'erreur, contactez l'équipe d'organisation<span id="dupContact"></span>.</p>
+    <button class="go" type="button" id="backForm">Revenir au formulaire</button>
+  </div>
+</main>
+
+<footer id="foot">AMMnet Burkina Faso, en collaboration avec le SP/PALU, avec l'appui technique de BlueSquare</footer>
+
+<script>
+{
+/* ===== À PERSONNALISER AVANT PUBLICATION ===== */
+const CONFIG = {
+  scriptUrl: "https://script.google.com/macros/s/AKfycbwCT6khHNNPXj95B6lUBFxNsqmlDYNO4VlAXp_RB_ooJSyAxV3tdD8WQ23A7OlGNdZEbQ/exec",                                   // URL du déploiement Google Apps Script (vide = mode démonstration)
+  deadline: "2026-12-07T23:59:59Z",                // date limite (heure du Burkina = UTC)
+  deadlineLabel: "07 décembre 2026",
+  notification: "10 décembre 2026",
+  formation: "17-19 décembre 2026",
+  lieu: "SP/Palu",
+  places: 25,
+  maxFileMB: 2,
+  authRequired: true,                              // autorisation du supérieur obligatoire ?
+  contactEmail: "ammnetburkina@gmail.com",                                // ex. contact@ammnet-bf.org
+  contactPhone: "+226 03643535"                                 // ex. +226 70 00 00 00
+};
+/* ============================================= */
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const form = $('#form');
+const KEY = 'ammnet-candidature-brouillon';
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+for (const el of $$('[data-c]')) { const v = CONFIG[el.dataset.c]; if (v !== undefined && v !== '') el.textContent = String(v); }
+
+const contacts = [];
+if (CONFIG.contactPhone) contacts.push('WhatsApp ' + CONFIG.contactPhone);
+if (CONFIG.contactEmail) contacts.push(CONFIG.contactEmail);
+if (contacts.length) { $('#foot').textContent += '. Contact : ' + contacts.join(' · '); $('#dupContact').textContent = ' (' + contacts.join(' ; ') + ')'; }
+
+/* Date limite */
+const left = new Date(CONFIG.deadline) - new Date();
+const closed = left < 0;
+const days = Math.ceil(left / 864e5);
+$('#countdown').textContent = closed ? 'Les candidatures sont closes.' : days <= 1 ? 'Dernier jour pour candidater.' : 'Clôture dans ' + days + ' jours.';
+if (closed) { form.hidden = true; $('#closed').hidden = false; $('#statusPill').textContent = 'Candidatures closes'; }
+
+/* Programme */
+const DAYS = [
+  ['Jour 1', ['Accueil, objectifs et pré-test', 'M1. Fondements de la modélisation : SIR, R₀, couverture critique', 'M2. Introduction au SEIR et à la saisonnalité']],
+  ['Jour 2', ['M3. Modèle hôte-vecteur (Ross-Macdonald)', 'M4. Scénarios de lutte : MILDA, CPS+, vaccination ; lancement des travaux de groupe', 'M5. Écosystème et qualité des données']],
+  ['Jour 3', ['M6. De la donnée à la décision : nettoyage, graphiques, tableau de bord', 'Restitution des travaux de groupe', 'Post-test, attestations et clôture']]
+];
+$('#days').innerHTML = DAYS.map(([j, l]) => '<div class="day"><b>' + j + '</b><ul>' + l.map(x => '<li>' + esc(x) + '</li>').join('') + '</ul></div>').join('');
+
+/* Listes du formulaire */
+const REGIONS = ['Bankui', 'Djôrô', 'Goulmou', 'Guiriko', 'Kadiogo', 'Kuilsé', 'Liptako', 'Nakambé', 'Nando', 'Nazinon', 'Oubri', 'Sirba', 'Soum', 'Sourou', 'Tannounyan', 'Tapoa', 'Yaadga', 'Niveau central (national)'];
+$('#region').insertAdjacentHTML('beforeend', REGIONS.map(r => '<option>' + esc(r) + '</option>').join(''));
+
+const multi = (id, items) => { $('#' + id).innerHTML = items.map(t => '<label class="opt"><input type="checkbox" name="' + id + '" data-multi="1" value="' + esc(t) + '">' + esc(t) + '</label>').join(''); };
+multi('taches', ['Collecte de données', 'Saisie dans DHIS2 ou un autre système d\'information sanitaire', 'Contrôle de qualité des données', 'Analyse statistique', 'Rapports ou tableaux de bord', 'Recherche', 'Enseignement', 'Aucune']);
+multi('logiciels', ['R', 'RStudio', 'Excel ou autre tableur', 'DHIS2', 'Python', 'Stata, SPSS ou Epi Info', 'Aucun']);
+
+const LEVELS = ['Aucune notion', 'Débutant', 'Intermédiaire', 'Avancé'];
+const SKILLS = [
+  ['compR', 'Votre niveau en R', 'Importer un fichier, manipuler des données, exécuter un script.'],
+  ['compStatistique', 'Votre niveau en analyse des données (statistique)', 'Par exemple : tableaux descriptifs, tests statistiques, régressions.'],
+  ['compModelisation', 'Votre niveau en modélisation mathématique', 'Modèles SIR, SEIR, équations différentielles.'],
+  ['compDHIS2', 'Votre niveau en DHIS2', 'Saisie, extraction ou tableaux de bord.']
+];
+$('#skills').innerHTML = SKILLS.map(([k, l, h]) => '<div class="f"><span class="lbl">' + esc(l) + ' <span class="req">*</span><span class="hint">' + esc(h) + '</span></span><div class="opts scale">' + LEVELS.map((v, i) => '<label class="opt"><input type="radio" name="' + k + '" value="' + v + '"' + (i ? '' : ' required') + '>' + v + '</label>').join('') + '</div><p class="msg"></p></div>').join('');
+
+if (CONFIG.authRequired) $('#autorisation').required = true; else $('#authStar').hidden = true;
+
+/* Champs conditionnels */
+const conditional = () => {
+  for (const w of $$('[data-show]')) {
+    const [n, v] = w.dataset.show.split('=');
+    const on = !!form.elements[n] && form.elements[n].value === v;
+    w.hidden = !on;
+    for (const i of w.querySelectorAll('input,select,textarea')) i.disabled = !on;
+  }
+};
+
+/* Compteurs de mots */
+const words = s => (s.trim().match(/\S+/g) || []).length;
+const counters = () => {
+  for (const t of $$('textarea[data-max]')) {
+    const n = words(t.value), max = +t.dataset.max, el = $('.wc[data-for="' + t.id + '"]');
+    el.textContent = n + ' / ' + max + ' mots';
+    el.classList.toggle('over', n > max);
+  }
+};
+
+/* Brouillon local */
+const saveDraft = () => {
+  const o = {};
+  for (const el of form.elements) {
+    if (!el.name || el.type === 'file') continue;
+    if (el.type === 'radio' || el.type === 'checkbox') { if (el.checked) (o[el.name] = o[el.name] || []).push(el.value); }
+    else o[el.name] = el.value;
+  }
+  try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {}
+};
+const restoreDraft = () => {
+  let o = null;
+  try { o = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (!o) return;
+  for (const el of form.elements) {
+    if (!el.name || el.type === 'file' || !(el.name in o)) continue;
+    const v = o[el.name];
+    if (el.type === 'radio' || el.type === 'checkbox') el.checked = Array.isArray(v) && v.includes(el.value);
+    else el.value = v;
+  }
+  const note = $('#draftNote');
+  note.textContent = 'Vos réponses précédentes ont été retrouvées sur cet appareil. Pensez à joindre à nouveau vos fichiers PDF.';
+  note.hidden = false;
+};
+const clearDraft = () => { try { localStorage.removeItem(KEY); } catch (e) {} };
+
+restoreDraft();
+conditional();
+counters();
+
+let tmr;
+form.addEventListener('input', e => {
+  const f = e.target.closest('.f'); if (f) f.classList.remove('bad');
+  conditional(); counters();
+  clearTimeout(tmr); tmr = setTimeout(saveDraft, 400);
+});
+form.addEventListener('change', e => { const f = e.target.closest('.f'); if (f) f.classList.remove('bad'); conditional(); saveDraft(); });
+
+/* Validation */
+const setBad = (el, m) => { const f = el.closest('.f'); if (!f) return; f.classList.add('bad'); const p = f.querySelector('.msg'); if (p) p.textContent = m; };
+const validate = () => {
+  $$('.f.bad').forEach(f => f.classList.remove('bad'));
+  const bad = [], seen = new Set();
+  for (const el of form.elements) {
+    if (!el.name || el.disabled || el.dataset.multi) continue;
+    if (el.type === 'radio') {
+      if (seen.has(el.name)) continue; seen.add(el.name);
+      const group = [...form.querySelectorAll('input[name="' + el.name + '"]')];
+      if (group.some(i => i.required) && !group.some(i => i.checked)) { setBad(el, 'Choisissez une réponse.'); bad.push(el); }
+    } else if (el.type === 'checkbox') {
+      if (el.required && !el.checked) { setBad(el, 'Cette case doit être cochée pour candidater.'); bad.push(el); }
+    } else if (el.type === 'file') {
+      const file = el.files[0], max = CONFIG.maxFileMB * 1048576;
+      if (!file) { if (el.required) { setBad(el, 'Joignez ce document en PDF.'); bad.push(el); } }
+      else if (!/\.pdf$/i.test(file.name)) { setBad(el, 'Le fichier doit être au format PDF.'); bad.push(el); }
+      else if (file.size > max) { setBad(el, 'Le fichier dépasse ' + CONFIG.maxFileMB + ' Mo. Compressez-le puis réessayez.'); bad.push(el); }
+    } else if (el.required && !el.value.trim()) { setBad(el, 'Ce champ est obligatoire.'); bad.push(el); }
+    else if (el.type === 'email' && el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim())) { setBad(el, 'Adresse e-mail invalide.'); bad.push(el); }
+    else if (el.type === 'tel' && el.value && el.value.replace(/\D/g, '').length < 8) { setBad(el, 'Numéro incomplet : indiquez au moins 8 chiffres.'); bad.push(el); }
+    else if (el.dataset.max && words(el.value) > +el.dataset.max) { setBad(el, 'Réduisez votre texte à ' + el.dataset.max + ' mots maximum.'); bad.push(el); }
+  }
+  for (const g of ['taches', 'logiciels']) if (!form.querySelector('input[name="' + g + '"]:checked')) { setBad($('#' + g), 'Cochez au moins une réponse.'); bad.push($('#' + g)); }
+  const box = $('#formError');
+  if (bad.length) {
+    bad.sort((a, b) => a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1);
+    box.textContent = bad.length === 1 ? 'Un champ est à corriger avant l\'envoi.' : bad.length + ' champs sont à corriger avant l\'envoi.';
+    box.hidden = false;
+    const first = bad[0].closest('.f') || bad[0];
+    first.scrollIntoView({ block: 'center' });
+    const fo = first.querySelector('input,select,textarea'); if (fo) fo.focus({ preventScroll: true });
+    return false;
+  }
+  box.hidden = true;
+  return true;
+};
+
+const collect = () => {
+  const d = {};
+  for (const el of form.elements) {
+    if (!el.name || el.disabled || el.type === 'file') continue;
+    if (el.type === 'radio') { if (el.checked) d[el.name] = el.value; else if (!(el.name in d)) d[el.name] = ''; }
+    else if (el.type === 'checkbox') {
+      if (el.dataset.multi) { d[el.name] = d[el.name] || []; if (el.checked) d[el.name].push(el.value); }
+      else d[el.name] = el.checked ? 'Oui' : 'Non';
+    } else d[el.name] = el.value.trim();
+  }
+  return d;
+};
+const readFile = input => new Promise((ok, ko) => {
+  const f = input.files[0]; if (!f) return ok(null);
+  const r = new FileReader();
+  r.onload = () => ok({ name: f.name, type: f.type || 'application/pdf', size: f.size, data: String(r.result).split(',')[1] });
+  r.onerror = () => ko(r.error);
+  r.readAsDataURL(f);
+});
+
+const show = id => { for (const p of ['form', 'success', 'duplicate']) $('#' + p).hidden = p !== id; const el = $('#' + id); el.scrollIntoView({ block: 'start' }); if (id !== 'form') el.focus({ preventScroll: true }); };
+
+let sending = false;
+const btn = $('#send');
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  if (sending || !validate()) return;
+  sending = true; btn.disabled = true; btn.textContent = 'Envoi en cours…';
+  try {
+    const data = collect();
+    data.cv = await readFile($('#cv'));
+    data.autorisation = await readFile($('#autorisation'));
+    let res;
+    if (!CONFIG.scriptUrl) { await new Promise(r => setTimeout(r, 700)); res = { status: 'ok', reference: 'DÉMO-001', demo: true }; }
+    else { const r = await fetch(CONFIG.scriptUrl, { method: 'POST', body: JSON.stringify(data) }); res = await r.json(); }
+    if (res.status === 'ok') {
+      $('#okName').textContent = data.prenoms + ' ' + data.nom;
+      $('#okRef').textContent = res.reference || '';
+      $('#okMail').textContent = data.email;
+      $('#okDemo').hidden = !res.demo;
+      clearDraft(); form.reset(); conditional(); counters(); $('#draftNote').hidden = true;
+      show('success');
+    } else if (res.status === 'duplicate') show('duplicate');
+    else if (res.status === 'closed') { form.hidden = true; $('#closed').hidden = false; }
+    else throw new Error(res.message || 'Erreur');
+  } catch (err) {
+    const box = $('#formError');
+    box.textContent = 'L\'envoi a échoué. Vérifiez votre connexion internet puis réessayez. Si le problème persiste, contactez l\'équipe d\'organisation.';
+    box.hidden = false; box.scrollIntoView({ block: 'center' });
+  } finally { sending = false; btn.disabled = false; btn.textContent = 'Envoyer ma candidature'; }
+});
+$('#another').addEventListener('click', () => show('form'));
+$('#backForm').addEventListener('click', () => show('form'));
+
+/* Fond du bandeau : carte de chaleur stylisée */
+const heat = $('#heat');
+const paint = () => {
+  const W = heat.clientWidth, H = heat.clientHeight; if (!W || !H) return;
+  let seed = 7; const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;
+  const cx = W > 760 ? W * 0.74 : W * 0.97;
+  const blobs = [[0, 0, 1], [-0.16, 0.18, 0.75], [0.12, 0.3, 0.6], [-0.05, -0.22, 0.55], [0.2, -0.05, 0.5]];
+  let g = '<defs><radialGradient id="hg"><stop offset="0" stop-color="#f6a821" stop-opacity=".55"/><stop offset=".5" stop-color="#e8590c" stop-opacity=".22"/><stop offset="1" stop-color="#e8590c" stop-opacity="0"/></radialGradient></defs>';
+  for (let k = 1; k <= 9; k++) g += '<path d="M0,' + (H * k / 9) + ' C' + W * 0.3 + ',' + (H * k / 9 - 18) + ' ' + W * 0.6 + ',' + (H * k / 9 + 16) + ' ' + W + ',' + (H * k / 9 - 6) + '" fill="none" stroke="currentColor" stroke-opacity=".06"/>';
+  for (const [dx, dy, s] of blobs) { const r = Math.min(W, 900) * 0.2 * s; g += '<ellipse cx="' + (cx + dx * W) + '" cy="' + (H * 0.42 + dy * H) + '" rx="' + r * 1.3 + '" ry="' + r + '" fill="url(#hg)"/>'; }
+  for (let i = 0; i < 70; i++) { const a = rnd() * 6.283, d = rnd() ** 0.6 * Math.min(W, 900) * 0.24; g += '<circle cx="' + (cx + Math.cos(a) * d * 1.4).toFixed(1) + '" cy="' + (H * 0.42 + Math.sin(a) * d).toFixed(1) + '" r="1.6" fill="#e8590c" fill-opacity=".28"/>'; }
+  heat.innerHTML = g;
+};
+const ro = new ResizeObserver(paint);
+ro.observe(heat);
+}
+</script>
+</body>
+</html>
