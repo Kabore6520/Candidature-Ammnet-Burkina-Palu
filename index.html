@@ -193,28 +193,21 @@ footer{text-align:center;font-size:13.5px;color:var(--mut);padding:34px 16px 40p
       <li>Un ordinateur portable personnel, sur lequel vous pourrez installer R et RStudio avant la formation.</li>
       <li>Aucune expérience en modélisation exigée. Une connaissance élémentaire de R est un plus, mais n'est pas obligatoire.</li>
     </ul>
-    <h3>Répartition indicative des places</h3>
-    <table>
-      <tr><td>SP/PALU</td><td class="n">5 à 6</td></tr>
-      <tr><td>CNRFP et structures de recherche</td><td class="n">3 à 4</td></tr>
-      <tr><td>Directions régionales et districts sanitaires</td><td class="n">8 à 9</td></tr>
-      <tr><td>Universités et institutions de formation</td><td class="n">4 à 5</td></tr>
-      <tr><td>Autres partenaires techniques</td><td class="n">1 à 2</td></tr>
-    </table>
   </section>
 
   <section class="card" id="modalites">
     <span class="lab">Modalités et calendrier</span>
     <ol class="steps">
       <li><strong data-c="deadlineLabel"></strong><span>Clôture des candidatures. Seuls les dossiers complets, avec CV, sont examinés.</span></li>
-      <li><strong data-c="notification"></strong><span>Résultats communiqués par e-mail et WhatsApp.</span></li>
-      <li><strong>Deux semaines avant</strong><span>Envoi du guide d'installation (R, RStudio), des supports et des scripts ; vérification à distance de votre installation.</span></li>
-      <li><strong data-c="formation"></strong><span>Formation en présentiel.</span></li>
     </ol>
-    <h3 style="margin-top:16px">Sélection</h3>
-    <p>Lien du poste avec le paludisme ou les données, respect des prérequis (ordinateur, disponibilité sur toute la durée), qualité de la motivation, équilibre entre structures, régions et profils, et équilibre femmes-hommes.</p>
-    <h3>Pris en charge</h3>
-    <p>Pauses et déjeuners, kit pédagogique (supports, scripts R commentés, jeux de données) et attestation. Transport et hébergement selon les règles de l'organisateur, précisées aux candidats retenus.</p>
+    <h3 style="margin-top:16px">Prise en charge</h3>
+    <p>Les organisateurs prennent en charge, pour chaque participant retenu :</p>
+    <ul class="tick">
+      <li>les pauses-café et les déjeuners pendant toute la durée de la formation ;</li>
+      <li>un kit pédagogique complet : supports de cours, scripts R commentés et jeux de données d'exercice ;</li>
+      <li>une attestation de participation, remise à la clôture de la formation.</li>
+    </ul>
+    <p class="small" style="margin-top:10px">Les frais de transport et d'hébergement restent à la charge des participants ou de leur structure d'origine.</p>
   </section>
 
   <section class="card" id="faq">
@@ -263,18 +256,11 @@ footer{text-align:center;font-size:13.5px;color:var(--mut);padding:34px 16px 40p
         </div><p class="msg"></p></div>
       <div class="f" data-show="typeStructure=Autre partenaire technique"><label for="typeStructureAutre">Précisez le type de partenaire <span class="req">*</span></label><input type="text" id="typeStructureAutre" name="typeStructureAutre" required><p class="msg"></p></div>
       <div class="f"><label for="structure">Nom exact de la structure <span class="req">*</span></label><input type="text" id="structure" name="structure" autocomplete="organization" required><p class="msg"></p></div>
-      <div class="grid2">
-        <div class="f"><label for="region">Région <span class="req">*</span></label><select id="region" name="region" required><option value="">Choisir…</option></select><p class="msg"></p></div>
-        <div class="f"><label for="experience">Expérience professionnelle <span class="req">*</span></label>
-          <select id="experience" name="experience" required>
-            <option value="">Choisir…</option>
-            <option>Moins de 2 ans</option><option>2 à 5 ans</option><option>6 à 10 ans</option><option>Plus de 10 ans</option>
-          </select><p class="msg"></p></div>
-      </div>
-      <div class="f"><label for="fonction">Fonction ou poste actuel <span class="req">*</span></label><input type="text" id="fonction" name="fonction" autocomplete="organization-title" required><p class="msg"></p></div>
+      <div class="f"><label for="region">Région <span class="req">*</span></label><select id="region" name="region" required><option value="">Choisir…</option></select><p class="msg"></p></div>
       <div class="f"><span class="lbl">Profil principal <span class="req">*</span></span>
         <div class="opts">
           <label class="opt"><input type="radio" name="profil" value="Statisticien(ne)" required>Statisticien(ne)</label>
+          <label class="opt"><input type="radio" name="profil" value="Mathématicien(ne)">Mathématicien(ne)</label>
           <label class="opt"><input type="radio" name="profil" value="Épidémiologiste">Épidémiologiste</label>
           <label class="opt"><input type="radio" name="profil" value="Biologiste">Biologiste</label>
           <label class="opt"><input type="radio" name="profil" value="Gestionnaire de données">Gestionnaire de données</label>
@@ -283,7 +269,6 @@ footer{text-align:center;font-size:13.5px;color:var(--mut);padding:34px 16px 40p
           <label class="opt"><input type="radio" name="profil" value="Autre">Autre</label>
         </div><p class="msg"></p></div>
       <div class="f" data-show="profil=Autre"><label for="profilAutre">Précisez votre profil <span class="req">*</span></label><input type="text" id="profilAutre" name="profilAutre" required><p class="msg"></p></div>
-      <div class="f"><label for="diplome">Plus haut diplôme obtenu et domaine <span class="req">*</span><span class="hint">Par exemple : Master en santé publique</span></label><input type="text" id="diplome" name="diplome" required><p class="msg"></p></div>
     </fieldset>
 
     <fieldset class="card">
@@ -359,7 +344,6 @@ footer{text-align:center;font-size:13.5px;color:var(--mut);padding:34px 16px 40p
     <fieldset class="card">
       <legend>Pièces jointes</legend>
       <div class="f"><label for="cv">Curriculum vitae <span class="req">*</span><span class="hint">PDF de 2 pages maximum, <span data-c="maxFileMB"></span> Mo au plus.</span></label><input type="file" id="cv" name="cv" accept="application/pdf,.pdf" required><p class="msg"></p></div>
-      <div class="f"><label for="autorisation">Autorisation ou lettre de soutien du supérieur hiérarchique <span class="req" id="authStar">*</span><span class="hint">PDF, <span data-c="maxFileMB"></span> Mo au plus.</span></label><input type="file" id="autorisation" name="autorisation" accept="application/pdf,.pdf"><p class="msg"></p></div>
       <div class="f"><label for="source">Comment avez-vous connu cet appel ?</label>
         <select id="source" name="source">
           <option value="">Choisir…</option>
@@ -386,8 +370,8 @@ footer{text-align:center;font-size:13.5px;color:var(--mut);padding:34px 16px 40p
     <p>Votre numéro de candidature :</p>
     <span class="ref" id="okRef"></span>
     <ol>
-      <li>Conservez ce numéro ; une confirmation est envoyée à <strong id="okMail"></strong>.</li>
-      <li>Les résultats seront communiqués au plus tard le <strong data-c="notification"></strong>, par e-mail et WhatsApp.</li>
+      <li>Conservez ce numéro ; un e-mail de confirmation est envoyé à <strong id="okMail"></strong>. S'il n'apparaît pas d'ici quelques minutes, vérifiez le dossier <strong>Spam</strong> ou <strong>Courrier indésirable</strong>.</li>
+      <li>Les candidats retenus seront contactés par e-mail et WhatsApp.</li>
       <li>Si vous êtes retenu(e) : installez R et RStudio selon le guide envoyé, puis participez à la vérification à distance deux semaines avant la formation.</li>
     </ol>
     <p class="demo" id="okDemo" hidden>Mode démonstration : aucune adresse d'enregistrement n'est configurée, cette candidature n'a donc pas été transmise.</p>
@@ -416,7 +400,6 @@ const CONFIG = {
   lieu: "SP/Palu",
   places: 25,
   maxFileMB: 2,
-  authRequired: true,                              // autorisation du supérieur obligatoire ?
   contactEmail: "ammnetburkina@gmail.com",                                // ex. contact@ammnet-bf.org
   contactPhone: "+226 03643535"                                 // ex. +226 70 00 00 00
 };
@@ -462,12 +445,10 @@ const LEVELS = ['Aucune notion', 'Débutant', 'Intermédiaire', 'Avancé'];
 const SKILLS = [
   ['compR', 'Votre niveau en R', 'Importer un fichier, manipuler des données, exécuter un script.'],
   ['compStatistique', 'Votre niveau en analyse des données (statistique)', 'Par exemple : tableaux descriptifs, tests statistiques, régressions.'],
-  ['compModelisation', 'Votre niveau en modélisation mathématique', 'Modèles SIR, SEIR, équations différentielles.'],
-  ['compDHIS2', 'Votre niveau en DHIS2', 'Saisie, extraction ou tableaux de bord.']
+  ['compModelisation', 'Votre niveau en modélisation mathématique', 'Modèles SIR, SEIR, équations différentielles.']
 ];
 $('#skills').innerHTML = SKILLS.map(([k, l, h]) => '<div class="f"><span class="lbl">' + esc(l) + ' <span class="req">*</span><span class="hint">' + esc(h) + '</span></span><div class="opts scale">' + LEVELS.map((v, i) => '<label class="opt"><input type="radio" name="' + k + '" value="' + v + '"' + (i ? '' : ' required') + '>' + v + '</label>').join('') + '</div><p class="msg"></p></div>').join('');
 
-if (CONFIG.authRequired) $('#autorisation').required = true; else $('#authStar').hidden = true;
 
 /* Champs conditionnels */
 const conditional = () => {
@@ -596,7 +577,6 @@ form.addEventListener('submit', async e => {
   try {
     const data = collect();
     data.cv = await readFile($('#cv'));
-    data.autorisation = await readFile($('#autorisation'));
     let res;
     if (!CONFIG.scriptUrl) { await new Promise(r => setTimeout(r, 700)); res = { status: 'ok', reference: 'DÉMO-001', demo: true }; }
     else { const r = await fetch(CONFIG.scriptUrl, { method: 'POST', body: JSON.stringify(data) }); res = await r.json(); }
