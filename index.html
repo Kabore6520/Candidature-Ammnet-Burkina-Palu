@@ -408,7 +408,7 @@ footer{text-align:center;font-size:13.5px;color:var(--mut);padding:34px 16px 40p
 {
 /* ===== À PERSONNALISER AVANT PUBLICATION ===== */
 const CONFIG = {
-  scriptUrl: "https://script.google.com/macros/s/AKfycbwCT6khHNNPXj95B6lUBFxNsqmlDYNO4VlAXp_RB_ooJSyAxV3tdD8WQ23A7OlGNdZEbQ/exec",                                   // URL du déploiement Google Apps Script (vide = mode démonstration)
+  scriptUrl: "https://script.google.com/macros/s/AKfycbzolpOuAaSjUwDtu5WhqW-Iorg00TbGV30bXzbdzpV0sqF6kK5oEc6EaPNvLBHpAWBb/exec",                                   // URL du déploiement Google Apps Script (vide = mode démonstration)
   deadline: "2026-12-07T23:59:59Z",                // date limite (heure du Burkina = UTC)
   deadlineLabel: "07 décembre 2026",
   notification: "10 décembre 2026",
@@ -612,7 +612,7 @@ form.addEventListener('submit', async e => {
     else throw new Error(res.message || 'Erreur');
   } catch (err) {
     const box = $('#formError');
-    box.textContent = 'L\'envoi a échoué. Vérifiez votre connexion internet puis réessayez. Si le problème persiste, contactez l\'équipe d\'organisation.';
+    box.textContent = 'L\'envoi a échoué. Vérifiez votre connexion internet puis réessayez. Si le problème persiste, contactez l\'équipe d\'organisation.' + (err && err.message ? ' (Détail technique : ' + err.message + ')' : '');
     box.hidden = false; box.scrollIntoView({ block: 'center' });
   } finally { sending = false; btn.disabled = false; btn.textContent = 'Envoyer ma candidature'; }
 });
